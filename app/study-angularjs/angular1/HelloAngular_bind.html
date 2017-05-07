@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../../bower_components/angular-route/angular-route.js"></script>
+    <script src="scripts/HelloAngular_Module.js">
+
+    </script>
+
+</head>
+<body ng-app="HA">
+<div ng-controller="helloAngular">
+    <span ng-bind="greeting.text"></span>,Angular
+</div>
+<script>
+    var myModule = angular.module("HA", []);
+    myModule.controller("helloAngular", function ($scope) {
+        $scope.greeting = {
+            text:'Hello'
+        }
+
+
+    });
+</script>
+</body>
+</html>

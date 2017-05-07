@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyCssModule">
+<head>
+    <meta charset="UTF-8">
+    <title>css</title>
+    <link rel="stylesheet" href="css/css1.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.css">
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../../bower_components/angular-route/angular-route.js"></script>
+    <script src="scripts/css1.js"></script>
+</head>
+<body>
+<div ng-controller="CssCtrl">
+    <p class="text-{{color}}">测试css样式</p>
+    <button class="btn btn-default" ng-click="setGreen()">绿色</button>
+
+</div>
+</body>
+</html>

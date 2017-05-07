@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular-1.6.3/angular.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="FirstController">
+<button ng-click="add(1)">add</button>
+    <a ng-click="subtract(1)">Subtract</a>
+    {{counter}}
+</div>
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('FirstController',function ($scope) {
+        $scope.counter=0;
+        $scope.add=function (amount) {
+            $scope.counter+=amount;
+        };
+        $scope.subtract=function (amount) {
+            $scope.counter-=amount;
+        }
+
+    })
+</script>
+</body>
+</html>

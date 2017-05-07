@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular-1.6.3/angular.js"></script>
+</head>
+<body>
+<!--方法1-->
+
+<div ng-app="myApp">
+{{name}}
+</div>
+<script>
+    angular.module('myApp',[]).run(function ($rootScope) {
+        $rootScope.name='word';
+    })
+</script>
+
+
+<!--方法2-->
+<!--<div ng-app="myApp">
+    <div ng-controller="MyController">
+        {{name}}
+    </div>
+</div>
+<script>
+    angular.module('myApp',[]).controller('MyController',function ($scope) {
+        $scope.name='hello';
+    })
+</script>-->
+</body>
+</html>

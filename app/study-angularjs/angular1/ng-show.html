@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myShow">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/ngClass.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <button ng-click="toggleMenu()">Toggle Menu</button>
+    <!--ng-show 指令在表达式为 true 时显示指定的 HTML 元素，否则隐藏指定的 HTML 元素。-->
+    <ul ng-show="menuState.show">
+        <li>stun</li>
+        <li>distintegrate</li>
+        <li>erase</li>
+    </ul>
+</div>
+
+<script src="../../bower_components/angular/angular.js"></script>
+<script src="scripts/ngShow.js"></script>
+</body>
+</html>

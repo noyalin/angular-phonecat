@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyCssModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/ngClass.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.css">
+
+</head>
+<body>
+<div ng-controller="HeaderController">
+    <div ng-class='{error:isError,warning:isWaring}'>{{messagesText}}</div>
+    <button ng-click="showError()">Simulate</button>
+    <button ng-click="showWaring()">Simulate Warning</button>
+</div>
+<script src="../../bower_components/angular/angular.js"></script>
+<script src="scripts/ngShow.js"></script>
+</body>
+</html>
