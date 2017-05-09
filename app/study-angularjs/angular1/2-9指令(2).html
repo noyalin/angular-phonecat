@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令2</title>
+    <script src="../../bower_components/angular/angular.js"></script>
+</head>
+<body>
+<hello><div>11</div></hello>
+
+<script>
+    var myApp = angular.module("myApp", []);
+    myApp.directive("hello", function () {
+        return {
+            restrict: 'ACEM',
+            transclude:true,//保留hello里的内容，方便指令嵌套使用
+            template: '<div>Hi!<div ng-transclude></div></div>'
+
+        }
+    })
+
+</script>
+</body>
+</html>
