@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <title>scope的@绑定</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <drink flavor="{{ctrlFlavor}}"></drink>
+</div>
+<script src="../../bower_components/angular/angular.js"></script>
+<script>
+
+    var myModule = angular.module("myModule", []);
+    myModule.controller("myCtrl", function ($scope) {
+        $scope.ctrlFlavor = "SK2";
+    });
+    //方法1：
+    /*
+    myModule.directive('drink', function () {
+        return {
+            restrict: 'AE',
+            template:"<div>{{flavor}}</div>",
+            link:function (scope, element, attrs) {
+                scope.flavor=attrs.flavor;
+            }
+        }
+    });
+    */
+
+    //方法2：修改方法1
+    myModule.directive('drink', function () {
+        return {
+            restrict: 'AE',
+            scope:{//等价方法1的link
+                flavor:'@' //把当前属性作为字符串传递，还可以绑定来自外层scope的值，在属性中插入{{}}即可
+            },
+            template:"<div>{{flavor}}</div>"
+        }
+    });
+</script>
+</body>
+</html>

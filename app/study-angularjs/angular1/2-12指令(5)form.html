@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testFormModule">
+<head>
+    <meta charset="UTF-8">
+    <title>form指令</title>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <style>
+        div[contenteditable] {
+            cursor: pointer;
+            background: #D0d0d0;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div contenteditable="true" ng-model="content" title="click to edit">
+        Some
+    </div>
+    <pre>
+        model={{content}}
+    </pre>
+</div>
+
+<script>
+    var appModule = angular.module('testFormModule', []);
+    appModule.directive("contenteditable", function () {
+        return {
+            require: 'ngModel',//指令会在本地作用域查找ng-model
+            link: function (scope, elm, attrs, ctrl) {
+                //view->model
+                elm.bind('keyup', function () {
+                    scope.$apply(function () {
+                        ctrl.$setViewValue(elm.text());
+                    })
+                });
+                //model->view
+                ctrl.$render = function () {
+                    elm.html(ctrl.$viewValue);
+                };
+                //load init value from DOM
+                ctrl.$setViewValue(elm.html());
+            }
+        }
+    })
+</script>
+</body>
+</html>

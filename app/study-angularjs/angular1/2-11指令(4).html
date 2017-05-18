@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>指令-独立</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.css">
+
+
+</head>
+<body>
+<hello></hello>
+<hello></hello>
+<hello></hello>
+<hello></hello>
+
+<script src="../../bower_components/angular/angular.js"></script>
+<script>
+    var myApp = angular.module("myApp", []);
+    // 此时在input中输入一个值，所有的input都发生变化，指令之间不独立
+    /*
+    myApp.directive("hello", function () {
+        return {
+            restrict: 'AE',
+            template: '<div><input type="text" ng-model="username" />{{username}} </div>',
+            replace: true
+        }
+    });
+    */
+
+    //解决指令之间不独立问题
+    myApp.directive("hello", function () {
+        return {
+            restrict: 'AE',
+            scope:{},//解决指令之间不独立问题//不继承父域，且新建独立作用域
+            template: '<div><input type="text" ng-model="username" />{{username}} </div>',
+            replace: true
+        }
+    });
+</script>
+</body>
+</html>

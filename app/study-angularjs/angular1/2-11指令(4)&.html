@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <title>指令-&</title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <greeting greet="sayHello(name)"></greeting>
+    <greeting greet="sayHello(name)"></greeting>
+    <greeting greet="sayHello(name)"></greeting>
+</div>
+<script src="../../bower_components/angular/angular.js"></script>
+<script>
+    var myModule=angular.module('myModule',[]);
+    myModule.controller('myCtrl',function ($scope) {
+        $scope.sayHello=function (name) {
+            alert("hello "+name);
+        }
+    });
+    myModule.directive("greeting",function () {
+        return{
+            restrict:'AE',
+            scope:{
+                greet:'&' //&：传递一个来自父scope的函数，然后调用
+            },
+            template:'<input type="text" ng-model="userName" /> <br/>'+
+                '<button ng-click="greet({name:userName})">greet</button><br/>'
+        }
+    })
+</script>
+</body>
+</html>

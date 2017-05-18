@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testFormModule">
+<head>
+    <meta charset="UTF-8">
+    <title>form指令</title>
+    <script src="../../bower_components/angular/angular.js"></script>
+</head>
+<body>
+<form name="myForm" ng-submit="save()" ng-controller="testFormModule">
+    <input name="userName" type="text" ng-model="user.userName" required/>
+    <input name="password" type="password" ng-model="user.password" required/>
+    <input type="submit" ng-disabled="myForm.$invalid"/>
+</form>
+
+<script>
+    var appModule=angular.module('testFormModule',[]);
+    appModule.controller("testFormModule",function ($scope) {
+        $scope.user={
+            userName:'Noya',
+            password:''
+        };
+        $scope.save=function () {
+            alert("保存数据");
+        }
+    })
+</script>
+</body>
+</html>
