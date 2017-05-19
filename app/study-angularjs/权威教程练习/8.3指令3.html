@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../bower_components/angular/angular.js"></script>
+</head>
+<body>
+<input type="text" ng-model="myUrl" />
+<div my-directive some-attr="{{myUrl}}" my-link-text="Click me" >
+</div>
+<script>
+    angular.module('myApp', [])
+        .directive('myDirective', function () {
+            return{
+                restrict: 'A',
+                replace:true,
+                scope:{
+                    myLinkText:'@',//将DOM中的my-link属性的值赋值给新作用域对象中的myLink属性
+                    myUrl:'@someAttr'//将myUrl同some-attr属性的值绑定起来
+                },
+                template:'<div><input type="text" ng-model="myUrl"/> <a href="{{myUrl}}">{{myLinkText}}</a></div>'
+            }
+        })
+</script>
+</body>
+</html>
