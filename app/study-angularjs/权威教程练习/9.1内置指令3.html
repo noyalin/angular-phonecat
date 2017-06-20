@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../bower_components/angular/angular.js"></script>
+</head>
+<body>
+<!--输入框有值就是只读，无值就是不只读-->
+<input type="text" ng-model="someProperty">
+<input type="text" ng-readonly="someProperty" value="Some text here" />
+
+<br/><br/>
+<!--ng-selected-->
+<label>Select</label>
+<input type="checkbox" ng-model="isTwoFish"><br/>
+<select>
+    <option>1</option>
+    <option ng-selected="isTwoFish">2</option>
+</select>
+</body>
+</html>

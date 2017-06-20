@@ -1,7 +1,4 @@
 /**
- * Created by Dell on 2017/5/9.
- */
-/**
  * State-based routing for AngularJS
  * @version v0.3.2
  * @link http://angular-ui.github.com/

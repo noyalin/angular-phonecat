@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>双向数据绑定</title>
+    <script src="../../bower_components/angular/angular.js"></script>
+</head>
+<body>
+<label>Their URL field:</label>
+<input type="text" ng-model="theirUrl" />
+<div my-directive some-attr="theirUrl" my-link-text="Click me"></div>
+<script>
+    angular.module('myApp',[]).directive('myDirective',function () {
+        return{
+            restrict:'A',
+            replace:true,
+            scope:{
+                myUrl:'=someAttr',
+                myLinkText:'@'
+            },
+            template:'<div><label>My Url Field:</label><input type="text" ng-model="myUrl" />' +
+            '<a href="{{myUrl}}">{{myLinkText}}</a></div>'
+        }
+    })
+</script>
+</body>
+</html>
